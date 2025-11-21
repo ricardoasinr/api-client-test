@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional, Union
 from datetime import datetime
+from mangum import Mangum
 
 app = FastAPI(title="User Events API", version="1.0.0")
 
@@ -69,5 +70,5 @@ async def root():
     }
 
 
-# Handler para Vercel
-handler = app
+# Handler para Vercel usando Mangum
+handler = Mangum(app)
