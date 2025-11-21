@@ -67,3 +67,7 @@ async def root():
             "GET /events": "Obtener todos los eventos"
         }
     }
+
+
+# Handler para Vercel
+handler = app
