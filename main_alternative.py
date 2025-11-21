@@ -1,8 +1,10 @@
+"""
+Versión alternativa sin Mangum - para probar si Vercel detecta FastAPI nativamente
+"""
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional, Union
 from datetime import datetime
-from mangum import Mangum
 
 app = FastAPI(title="User Events API", version="1.0.0")
 
@@ -69,6 +71,6 @@ async def root():
         }
     }
 
+# NOTA: Vercel puede necesitar que también expongas un handler
+# Si esta versión no funciona, usa main.py con Mangum
 
-# Handler para Vercel usando Mangum
-handler = Mangum(app, lifespan="off")
